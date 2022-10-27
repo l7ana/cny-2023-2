@@ -80,6 +80,15 @@ for(var i = 0; i < candies.bodies.length; i++){
   console.log(candies.bodies);
 };
 
+// create new Candy.js file based on box
+// add the options there? (random location, width, height)
+//    load sprite image p5 way or matter js way?
+//    have to map matter sprite property to p5 shape
+//    candyImg = loadImage('./assets/candy.png')
+//    candyImg = this.body.render.sprite.texture  will this add the value of candyImg to the sprite property?
+// create for loop that pushes candies until the numberOfShapes variable into setup
+// in draw create another loop where code will execute to update
+
 }
 
 function mousePressed() {
