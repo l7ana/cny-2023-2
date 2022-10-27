@@ -38,47 +38,35 @@ function setup() {
   ground = Bodies.rectangle(200, height, width, 100, options);
 
   wall1 = Bodies.rectangle(width / 2, 10, width, 10, options)
-  wall2= Bodies.rectangle(width / 2, height + 10, width, 10, options)
+  wall2 = Bodies.rectangle(width / 2, height + 10, width, 10, options)
   wall3 = Bodies.rectangle(0 - 10, height / 2, 10, height, options)
   wall4 = Bodies.rectangle(width + 10, height / 2, 10, height, options)
-
-  World.add(world, [ground, wall1, wall2, wall3, wall4]);
-
-  function generateRandomNumber(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) + min);
-  };
-
-
+  
+  // function generateRandomNumber(min, max) {
+    //   return Math.floor(Math.random() * (max - min + 1) + min);
+    // };
+    
+    
+    World.add(world, [ground, wall1, wall2, wall3, wall4]);
   // Create sprite for p5
   // candyImg = loadImage('./assets/candy.png');
   // candy = new Block(world,{ x: 200, y: 200, w: 64, h: 64, image: candyImg});  
   // candy = new Box(world,{ x: 200, y: 200, w: 64, h: 64, image: candyImg});
+  
+// var candies = World.add(engine.world, [
+//     Bodies.rectangle(width / 2 - 75 * generateRandomNumber(-5, 5), height / 2 - 25 * generateRandomNumber(-3, 3), 150, 50),
+//     Bodies.rectangle(width / 2 - 75 * generateRandomNumber(-5, 5), height / 2 - 25 * generateRandomNumber(-3, 3), 150, 50),
+//     Bodies.rectangle(width / 2 - 75 * generateRandomNumber(-5, 5), height / 2 - 25 * generateRandomNumber(-3, 3), 150, 50),
+//     Bodies.rectangle(width / 2 - 75 * generateRandomNumber(-5, 5), height / 2 - 25 * generateRandomNumber(-3, 3), 150, 50),
+//     Bodies.rectangle(width / 2 - 75 * generateRandomNumber(-5, 5), height / 2 - 25 * generateRandomNumber(-3, 3), 150, 50),
+//     Bodies.rectangle(width / 2 - 75 * generateRandomNumber(-5, 5), height / 2 - 25 * generateRandomNumber(-3, 3), 150, 50),
+//     Bodies.rectangle(width / 2 - 75 * generateRandomNumber(-5, 5), height / 2 - 25 * generateRandomNumber(-3, 3), 150, 50)
+// ]);
 
-// var candySprite = {
-//   isStatic: false,
-//   render: {
-//     sprite: {
-//       texture: '/assets/candy.png',
-//       xScale: 1,
-//       yScale: 1
-//     }
-//   }
+// for(var i = 0; i < candies.bodies.length; i++){
+//   candies.bodies[i].render.sprite.texture = './assets/candy.png';
+//   console.log(candies.bodies);
 // };
-
-var candies = World.add(engine.world, [
-    Bodies.rectangle(width / 2 - 75 * generateRandomNumber(-5, 5), height / 2 - 25 * generateRandomNumber(-3, 3), 150, 50),
-    Bodies.rectangle(width / 2 - 75 * generateRandomNumber(-5, 5), height / 2 - 25 * generateRandomNumber(-3, 3), 150, 50),
-    Bodies.rectangle(width / 2 - 75 * generateRandomNumber(-5, 5), height / 2 - 25 * generateRandomNumber(-3, 3), 150, 50),
-    Bodies.rectangle(width / 2 - 75 * generateRandomNumber(-5, 5), height / 2 - 25 * generateRandomNumber(-3, 3), 150, 50),
-    Bodies.rectangle(width / 2 - 75 * generateRandomNumber(-5, 5), height / 2 - 25 * generateRandomNumber(-3, 3), 150, 50),
-    Bodies.rectangle(width / 2 - 75 * generateRandomNumber(-5, 5), height / 2 - 25 * generateRandomNumber(-3, 3), 150, 50),
-    Bodies.rectangle(width / 2 - 75 * generateRandomNumber(-5, 5), height / 2 - 25 * generateRandomNumber(-3, 3), 150, 50)
-]);
-
-for(var i = 0; i < candies.bodies.length; i++){
-  candies.bodies[i].render.sprite.texture = './assets/candy.png';
-  console.log(candies.bodies);
-};
 
 // create new Candy.js file based on box
 // add the options there? (random location, width, height)
@@ -96,7 +84,7 @@ function mousePressed() {
 }
 
 function draw() {
-  background(200);
+  background(255);
   Engine.update(engine);
   for (var i = 0; i < boxes.length; i++) {
     boxes[i].show();
