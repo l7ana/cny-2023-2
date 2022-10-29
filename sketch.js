@@ -19,9 +19,11 @@ var wall2;
 var wall3;
 var wall4;
 var candy;
+var candy2;
 var candies = []; // an array that will hold our shapes
 let candyImg;
 let mouse;
+var block;
 let mouseConstraint;
 let shapes = []; // an array that will hold our shapes
 let numberOfShapes = 50; // how many shapes to draw
@@ -47,7 +49,7 @@ function setup() {
     }
   };
 
-  image(candyImg, 0, 0);
+  candy2 = new Candy2(world, {x: random(0, width), y: random(0, height), w: 150, h: 50, image: candyImg})
 
   wall1 = Bodies.rectangle(width / 2, 10, width, 10, options)
   wall2 = Bodies.rectangle(width / 2, height + 10, width, 10, options)
@@ -57,7 +59,7 @@ function setup() {
   World.add(world, [wall1, wall2, wall3, wall4]);
 
   // Create sprite for p5
-  candy = new Candy(world,{ x: 200, y: 200, w: 64, h: 64, image: candyImg});  
+  candy = new Candy2(world,{ x: 200, y: 200, w: 64, h: 64, image: candyImg});  
   // candy = new Box(world,{ x: 200, y: 200, w: 64, h: 64, image: candyImg});
 
     // create a bunch of shape objects
@@ -66,10 +68,11 @@ function setup() {
     };
 
     console.log(candies.length);
-    // console.log(candy1);
-    console.log(candy)
+    console.log(candy2);
   
 }
+
+// NEXT TASK IS TO FIGURE OUT HOW TO ACCESS CANDIES' IMAGES
 
 function draw() {
   background(255);

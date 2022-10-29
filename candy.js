@@ -1,4 +1,4 @@
-function Candy(x, y, w, h) {
+function Candy(x, y, w, h, attributes) {
     var options = {
       friction: 0.3,
       restitution: 0.6,
@@ -7,7 +7,9 @@ function Candy(x, y, w, h) {
     this.body = Bodies.rectangle(x, y, w, h, options);
     this.w = w;
     this.h = h;
-    // this.attributes = attributes;
+    // image = this.body.render.sprite.texture;
+    this.attributes = attributes;
+    // this.attributes.image = candyImg;
     this.body.render.sprite.texture = candyImg;
     // this.image = image(candyImg, 0, 0);
     // this.attributes.image = image;
@@ -30,7 +32,6 @@ function Candy(x, y, w, h) {
       strokeWeight(1);
       stroke(255);
       fill(127);
-    //   texture(candyImg);
     //   imageMode(CENTER);
     //   image(this.image);
       rect(0, 0, this.w, this.h);
