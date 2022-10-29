@@ -29,6 +29,10 @@ let numberOfShapes = 50; // how many shapes to draw
 let height = window.innerHeight * .75;
 let width = window.innerWidth * .75;
 
+function preload() {
+  candyImg = loadImage('./assets/candy.png');
+}
+
 function setup() {
   createCanvas(width, height);
   engine = Engine.create();
@@ -43,17 +47,17 @@ function setup() {
     }
   };
 
+  image(candyImg, 0, 0);
+
   wall1 = Bodies.rectangle(width / 2, 10, width, 10, options)
   wall2 = Bodies.rectangle(width / 2, height + 10, width, 10, options)
   wall3 = Bodies.rectangle(0 - 10, height / 2, 10, height, options)
   wall4 = Bodies.rectangle(width + 10, height / 2, 10, height, options)
-  candy1 = new Candy(100,100,150,50);
 
   World.add(world, [wall1, wall2, wall3, wall4]);
 
   // Create sprite for p5
-  candyImg = loadImage('./assets/candy.png');
-  // candy = new Block(world,{ x: 200, y: 200, w: 64, h: 64, image: candyImg});  
+  candy = new Candy(world,{ x: 200, y: 200, w: 64, h: 64, image: candyImg});  
   // candy = new Box(world,{ x: 200, y: 200, w: 64, h: 64, image: candyImg});
 
     // create a bunch of shape objects
@@ -62,17 +66,10 @@ function setup() {
     };
 
     console.log(candies.length);
-    
-
-  // create new Candy.js file based on box
-  // add the options there? (random location, width, height)
-  //    load sprite image p5 way or matter js way?
-  //    have to map matter sprite property to p5 shape
-  //    candyImg = loadImage('./assets/candy.png')
-  //    candyImg = this.body.render.sprite.texture  will this add the value of candyImg to the sprite property?
-
+    // console.log(candy1);
+    console.log(candy)
+  
 }
-
 
 function draw() {
   background(255);
@@ -80,6 +77,7 @@ function draw() {
   for (var i = 0; i < candies.length; i++) {
     candies[i].show();
   };
+  image(candyImg, 0, 0);
   // noStroke(255);
   // fill(170);
   rectMode(CENTER);
