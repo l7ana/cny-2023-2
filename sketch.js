@@ -18,7 +18,6 @@ var wall1;
 var wall2;
 var wall3;
 var wall4;
-var candy;
 var candy2;
 var candies = []; // an array that will hold our shapes
 let candyImg;
@@ -27,6 +26,10 @@ var block;
 let mouseConstraint;
 let shapes = []; // an array that will hold our shapes
 let numberOfShapes = 50; // how many shapes to draw
+let mouseThreshold = 50; // how close can your mouse get to a shape before it moves
+let moveDistance = 150; // how far shapes move away from your mouse
+let animateDistance = 50; // how much each shape animates 
+
 
 let height = window.innerHeight * .75;
 let width = window.innerWidth * .75;
@@ -49,8 +52,6 @@ function setup() {
     }
   };
 
-  candy2 = new Candy2(world, {x: random(0, width), y: random(0, height), w: 150, h: 50, image: candyImg})
-
   wall1 = Bodies.rectangle(width / 2, 10, width, 10, options)
   wall2 = Bodies.rectangle(width / 2, height + 10, width, 10, options)
   wall3 = Bodies.rectangle(0 - 10, height / 2, 10, height, options)
@@ -58,29 +59,35 @@ function setup() {
 
   World.add(world, [wall1, wall2, wall3, wall4]);
 
-  // Create sprite for p5
-  candy = new Candy2(world,{ x: 200, y: 200, w: 64, h: 64, image: candyImg});  
-  // candy = new Box(world,{ x: 200, y: 200, w: 64, h: 64, image: candyImg});
 
     // create a bunch of shape objects
     for (let i = 0; i < numberOfShapes; i++) {
-      candies.push(new Candy(random(0, width),random(0, height),150,50));
+      candies.push(new Candy2(world, {x: random(0, width), y: random(0, height), w: 150, h:50, image: candyImg}));
     };
 
-    console.log(candies.length);
-    console.log(candy2);
-  
-}
+    console.log(candies[1]);
+  }
 
-// NEXT TASK IS TO FIGURE OUT HOW TO ACCESS CANDIES' IMAGES
+  function mousePressed() {
+  for (var i = 0; i < candies.length; i++) {
+    let mouseDistance = int(dist(this.x, this.y, mouseX, mouseY)); // check the distance from your mouse to the shape
+    if (mouseDistance <= mouseThreshold) { // if your mouse gets closer than the threshold...
+      candies[i].body.position.x += random(-moveDistance, moveDistance); // give the shape a new x position
+      candies[i].body.position.y += random(-moveDistance, moveDistance); // and a new y position
+      //this.x = lerp(this.x, random(this.x - moveDistance, this.x + moveDistance), 0.5);
+      //this.y = lerp(this.y, random(this.y - moveDistance, this.y + moveDistance), 0.5);
+    }
+  };
+    console.log(mouseX);
+  }
 
 function draw() {
   background(255);
   Engine.update(engine);
   for (var i = 0; i < candies.length; i++) {
-    candies[i].show();
+    candies[i].draw();
   };
-  image(candyImg, 0, 0);
+  // image(candyImg, 0, 0);
   // noStroke(255);
   // fill(170);
   rectMode(CENTER);

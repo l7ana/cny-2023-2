@@ -4,13 +4,14 @@ class Candy2 extends Block {
   }
 
   addBody() {
-    this.body = Matter.Bodies.rectangle(this.attributes.x, this.attributes.y, this.attributes.w, this.attributes.h, this.options);
+    this.body = Matter.Bodies.rectangle(this.attributes.x, this.attributes.y, this.attributes.w, this.attributes.h, this.options, this.attributes.image);
 
-    this.attributes.image = candyImg;
+    // this.attributes.image = candyImg;
 
     this.options = {
-      friction: 0.3,
-      restitution: 0.6,
+      friction: 0.5,
+      restitution: 0.1,
+      density: 1,
       angle: random(0, 360)
     };
 
