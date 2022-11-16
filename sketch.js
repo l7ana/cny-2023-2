@@ -82,13 +82,10 @@ function setup() {
   }
 
 function draw() {
-  background(255);
+  background(245);
   Engine.update(engine);
   for (var i = 0; i < candies.length; i++) {
     candies[i].draw();
   };
-  // image(candyImg, 0, 0);
-  // noStroke(255);
-  // fill(170);
-  rectMode(CENTER);
+  rect(0, 10, width, 10)
 }
