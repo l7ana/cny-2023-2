@@ -21,14 +21,15 @@ let numberOfShapes = 25; // how many shapes to draw
 let mouseThreshold = 50; // how close can your mouse get to a shape before it moves
 let moveDistance = 10; // how far shapes move away from your mouse
 
-let height = window.innerHeight * .75;
-let width = window.innerWidth * .75;
+let height = window.innerHeight;
+let width = window.innerWidth;
 
 function preload() {
   candyImg = loadImage('./assets/candy.png');
 }
 
 function setup() {
+	createMetaTag();
   createCanvas(width, height);
   engine = Engine.create();
   world = engine.world;
@@ -40,6 +41,15 @@ function setup() {
     };
     console.log(candies[1].body.friction);
   }
+
+function createMetaTag() {
+  let meta = createElement('meta');
+  meta.attribute('name', 'viewport');
+  meta.attribute('content', 'user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1,width=device-width,height=device-height');
+
+  let head = select('head');
+  meta.parent(head);
+}
 
 function draw() {
   background(245);
