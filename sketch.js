@@ -15,11 +15,12 @@ var world;
 var candy2;
 var candies = []; // an array that will hold our shapes
 let candyImg;
-var block;
+// var block;
 let shapes = []; // an array that will hold our shapes
 let numberOfShapes = 35; // how many shapes to draw
 let mouseThreshold = 50; // how close can your mouse get to a shape before it moves
 let moveDistance = 10; // how far shapes move away from your mouse
+let activeShapes;
 
 let height = window.innerHeight;
 let width = window.innerWidth;
@@ -39,7 +40,6 @@ function setup() {
     for (let i = 0; i < numberOfShapes; i++) {
       candies.push(new Candy2(world, {x: random(width * .3, width * .7), y: random(height * .3, height * .7), w: 150, h:50}));
     };
-    console.log(candies[1].body.friction);
   }
 
 function windowResized() {
