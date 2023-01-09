@@ -23,6 +23,7 @@ class Candy2 extends Block {
     };
 
     this.body = Matter.Bodies.rectangle(this.attributes.x, this.attributes.y, this.attributes.w, this.attributes.h, this.options, this.attributes.image);
+    Matter.World.add(world, this.body);
 
     this.show = function() {
       var pos = this.body.position;
