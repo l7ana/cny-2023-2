@@ -17,7 +17,7 @@ var candies = []; // an array that will hold our shapes
 let candyImg;
 var block;
 let shapes = []; // an array that will hold our shapes
-let numberOfShapes = 25; // how many shapes to draw
+let numberOfShapes = 50; // how many shapes to draw
 let mouseThreshold = 50; // how close can your mouse get to a shape before it moves
 let moveDistance = 10; // how far shapes move away from your mouse
 
@@ -37,7 +37,7 @@ function setup() {
 
     // create a bunch of shape objects
     for (let i = 0; i < numberOfShapes; i++) {
-      candies.push(new Candy2(world, {x: random(0, width), y: random(0, height), w: 150, h:50}));
+      candies.push(new Candy2(world, {x: random(width * .3, width * .7), y: random(height * .3, height * .7), w: 150, h:50}));
     };
     console.log(candies[1].body.friction);
   }
