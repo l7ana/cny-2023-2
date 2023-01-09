@@ -42,10 +42,6 @@ function setup() {
     console.log(candies[1].body.friction);
   }
 
-function touchMoved() {
-  return false;
-}
-
 function windowResized() {
   resizeCanvas(window.innerWidth, window.innerHeight);
 }

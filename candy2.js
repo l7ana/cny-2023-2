@@ -22,8 +22,8 @@ class Candy2 extends Block {
       angle: random(0, 360)
     };
 
-    this.body = Matter.Bodies.rectangle(this.attributes.x, this.attributes.y, this.attributes.w, this.attributes.h, this.options, this.attributes.image);
-    Matter.World.add(world, this.body);
+    this.body = Matter.Bodies.rectangle(this.attributes.x, this.attributes.y, this.attributes.w, this.attributes.h, this.options);
+    // Matter.World.add(world, this.body);
 
     this.show = function() {
       var pos = this.body.position;
@@ -32,12 +32,8 @@ class Candy2 extends Block {
       translate(pos.x, pos.y);
       rotate(angle);
       rectMode(CENTER);
-      strokeWeight(1);
-      stroke(255);
-      fill(127);
       imageMode(CENTER);
-      image(candyImg);
-      rect(0, 0, this.w, this.h);
+      image(candyImg, 0, 0, this.w, this.h);
       pop();
     };
   }
