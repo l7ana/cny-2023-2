@@ -5,7 +5,6 @@
 
 // module aliases
 var Engine = Matter.Engine,
-  // Render = Matter.Render,
   World = Matter.World,
   Bodies = Matter.Bodies;
   Composite = Matter.Composite;
@@ -18,7 +17,7 @@ var candies = []; // an array that will hold our shapes
 let candyImg;
 var block;
 let shapes = []; // an array that will hold our shapes
-let numberOfShapes = 50; // how many shapes to draw
+let numberOfShapes = 25; // how many shapes to draw
 let mouseThreshold = 50; // how close can your mouse get to a shape before it moves
 let moveDistance = 10; // how far shapes move away from your mouse
 
