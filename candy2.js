@@ -10,10 +10,6 @@ class Candy2 extends Block {
       this.body.position.x += random(-moveDistance, moveDistance); // give the shape a new x position
       this.body.position.y += random(-moveDistance, moveDistance); // and a new y position
     };
-    // if body is within certain coordinates, remove body.
-    // push every body within certain coordinates to active shapes
-    // console.log active shapes
-    // somehow map number of remaining active shapes to opacity...
   }
 
   addBody() {
@@ -39,6 +35,21 @@ class Candy2 extends Block {
       image(candyImg, 0, 0, this.w, this.h);
       pop();
     };
+  }
+
+  watchShapes() {
+    var x = this.body.position.x;
+    var y = this.body.position.y;
+    if (x < width, y < height) {
+      console.log('in');
+    } else if (x > width, x < 250, y > height) {
+      console.log('out');
+    }
+    // REFACTOR TO EVENT LISTENER
+    // if body is within observer, remove body.
+    // push every body within certain coordinates to active shapes
+    // console.log active shapes
+    // somehow map number of remaining active shapes to opacity...
   }
 
 }

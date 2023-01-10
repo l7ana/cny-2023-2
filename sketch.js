@@ -17,7 +17,7 @@ var candies = []; // an array that will hold our shapes
 let candyImg;
 // var block;
 let shapes = []; // an array that will hold our shapes
-let numberOfShapes = 35; // how many shapes to draw
+let numberOfShapes = 25; // how many shapes to draw
 let mouseThreshold = 50; // how close can your mouse get to a shape before it moves
 let moveDistance = 10; // how far shapes move away from your mouse
 let activeShapes;
@@ -55,11 +55,17 @@ function createMetaTag() {
   meta.parent(head);
 }
 
+function mouseClicked() {
+  console.log(mouseX, mouseY);
+}
+
 function draw() {
   background(245);
   Engine.update(engine);
   for (var i = 0; i < candies.length; i++) {
     candies[i].updateShape();
+    // update observer
     candies[i].draw();
+    candies[i].watchShapes();
   };
 }
